@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,                   
+    "forceConsistentCasingInFileNames": true,            
+    "strict": true,        
+    "outDir": "./dist",
+    "resolveJsonModule": true                   
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
