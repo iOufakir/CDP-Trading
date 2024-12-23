@@ -2,8 +2,10 @@
   "name": "coinbase-project",
   "version": "1.0.0",
   "description": "A simple Node.js project using @coinbase/coinbase-sdk",
+  "main": "dist/App.js",
+  "type": "module",
   "scripts": {
-    "dev": "tsc && node dist/server.js",
+    "dev": "node dist/App.js",
     "build": "tsc",
     "start": "npm run build && npm run dev",
     "watch": "tsc --watch",
@@ -21,12 +23,10 @@
     "@coinbase/coinbase-sdk": "^0.13.0",
     "fs-extra": "^11.2.0"
   },
-  "type": "module",
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.10.2",
-    "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
 }
