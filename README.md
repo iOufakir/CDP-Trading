@@ -2,6 +2,8 @@
 
 Welcome to the Coinbase SDK Learning Project! This project is designed to help you learn how to use the Coinbase SDK to access various cryptocurrency functionalities, including trading and copy trading.
 
+**AgentKit** allows developers to create AI agents that autonomously interact with blockchain networks. These agents can execute commands in the blockchain directly, perform queries, and interact with smart contracts.  
+
 ## Features
 
 - Access account information

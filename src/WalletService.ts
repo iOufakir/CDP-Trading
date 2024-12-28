@@ -1,10 +1,8 @@
-import { Coinbase, Wallet } from "@coinbase/coinbase-sdk";
+import { Coinbase, Wallet, WalletData } from "@coinbase/coinbase-sdk";
 
 export default class WalletService {
   /**
    * Creates a new Wallet and saves the seed to a local file.
-   *
-   * @returns The newly created Wallet.
    */
   public async createWallet(seedFileName: string): Promise<void> {
     const wallet = await Wallet.create();
@@ -37,8 +35,8 @@ export default class WalletService {
     throw new Error(`Wallet not found for the given address: ${address}`);
   }
 
-  public async loadWallet(wallet: Wallet, seedFileName: string): Promise<void> {
-    await wallet.loadSeedFromFile(seedFileName);
+  public async loadWallet(walletData: WalletData): Promise<Wallet> {
+    return await Wallet.import(walletData); 
   }
 
   public async transferEthFunds(sourceWallet: Wallet, destinationWallet: Wallet): Promise<void> {
@@ -50,4 +48,11 @@ export default class WalletService {
     transfer = await transfer.wait();
     console.log(`Transfer successfully completed: ${transfer.getTransaction()?.getTransactionHash()}`);
   }
+
+  public getLatestTransactions = async (walletAddress: string): Promise<void> => {
+    const wallet = await Wallet.fetch(walletAddress);
+    console.info("Latest transactions:", wallet.listFundOperations());
+    console.info("Latest transactions:", wallet.listHistoricalBalances(Coinbase.assets.Eth));
+  }
+
 }

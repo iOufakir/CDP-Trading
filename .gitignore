@@ -3,3 +3,5 @@ dist
 local-*.json
 wallet_saved_seeds.json
 .DS_Store
+.env
+my_wallet.*
